@@ -1,0 +1,17 @@
+.navbar__search {
+    margin-left: 16rem;
+}
+
+.navbar__search  input {
+    width: 25rem;
+}
+
+.navbar-nav {
+    margin-left: 20rem;
+    font-size: 1rem;
+}
+
+.navbar-brand h3 a {
+    color: blueviolet;
+    text-decoration: none;
+}

@@ -1,0 +1,40 @@
+.navbar__search {
+    margin-left: 16rem;
+}
+
+.navbar__search  input {
+    width: 25rem;
+}
+
+.navbar-nav {
+    margin-left: 20rem;
+    font-size: 1rem;
+}
+
+.navbar-brand h3 a {
+    color: blueviolet;
+    text-decoration: none;
+}
+
+.suggested-result {
+    position: absolute;
+    display: list-item;
+    z-index: 10;
+    background-color: #fff;
+    width: 300px;
+    top: 60px;
+    bottom: 1px solid #ddd;
+}
+
+.suggested-result li {
+    border: 1px solid #ddd;
+    padding: 5px;
+    margin-top: 5px;
+    list-style: none;
+}
+
+.suggested-result li a {
+    cursor: pointer;
+    color: blueviolet;
+}
+

@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <h3><a routerLink="/">O P E N F A B</a></h3>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+      <form *ngIf="menuType==='default'" class="d-flex navbar__search">
+        <input class="form-control me-2" (keyup)="searchProduct($event)" (blur)="hideSearch()" type="search" placeholder="Search your product" aria-label="Search" #searchInput>
+        <button class="btn btn-outline-success" type="submit" (click)="submitSearch(searchInput.value)">Search</button>
+        <ul class="suggested-result" *ngIf="searchResult">
+          <li *ngFor="let item of searchResult">
+            <a (mousedown)="redirecttToDetails(item._id)">{{item.name}}</a>
+          </li>
+        </ul>
+      </form>
+
+      <div [ngSwitch]="menuType">
+        <ul *ngSwitchCase="'default'" class="navbar-nav me-auto mb-4 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/seller-auth">Seller</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/seller-auth">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Cart(0)</a>
+          </li>
+        </ul>
+
+        <ul *ngSwitchCase="'seller'" class="navbar-nav me-auto mb-4 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/seller-home">Product List</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/seller-add-product">Add Product</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="logout()">Logout</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/seller-home">{{sellerName | titlecase}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -31,7 +31,6 @@ exports.updateProduct = async (req, res) => {
         }, {new:true});
 
         res.status(200).json({
-            success: true,
             updateProduct,
         })
 
@@ -110,7 +109,6 @@ exports.getAllProduct = async (req, res) => {
         }
 
         res.status(200).json({
-            success: true,
             products,
         })
         
@@ -122,4 +120,29 @@ exports.getAllProduct = async (req, res) => {
         })
         
     }
+}
+
+
+exports.searchProduct = async (req, res) => {
+
+    const searchTerm = req.query.q; 
+
+  try {
+
+    const searchResults = await Product.find({
+      $or: [
+        { name: { $regex: searchTerm, $options: 'i' } },
+        { description: { $regex: searchTerm, $options: 'i' } },
+      ],
+    });
+
+    res.status(200).json({
+      products: searchResults,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
 }

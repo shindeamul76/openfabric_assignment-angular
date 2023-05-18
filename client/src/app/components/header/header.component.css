@@ -15,3 +15,26 @@
     color: blueviolet;
     text-decoration: none;
 }
+
+.suggested-result {
+    position: absolute;
+    display: list-item;
+    z-index: 10;
+    background-color: #fff;
+    width: 300px;
+    top: 60px;
+    bottom: 1px solid #ddd;
+}
+
+.suggested-result li {
+    border: 1px solid #ddd;
+    padding: 5px;
+    margin-top: 5px;
+    list-style: none;
+}
+
+.suggested-result li a {
+    cursor: pointer;
+    color: blueviolet;
+}
+

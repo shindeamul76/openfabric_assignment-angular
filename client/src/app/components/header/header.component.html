@@ -11,8 +11,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
       <form *ngIf="menuType==='default'" class="d-flex navbar__search">
-        <input class="form-control me-2" type="search" placeholder="Search your product" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <input class="form-control me-2" (keyup)="searchProduct($event)" (blur)="hideSearch()" type="search" placeholder="Search your product" aria-label="Search" #searchInput>
+        <button class="btn btn-outline-success" type="submit" (click)="submitSearch(searchInput.value)">Search</button>
+        <ul class="suggested-result" *ngIf="searchResult">
+          <li *ngFor="let item of searchResult">
+            <a (mousedown)="redirecttToDetails(item._id)">{{item.name}}</a>
+          </li>
+        </ul>
       </form>
 
       <div [ngSwitch]="menuType">

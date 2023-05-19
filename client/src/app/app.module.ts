@@ -15,6 +15,7 @@ import { SellerUpdateProductComponent } from './components/seller-update-product
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SearchComponent } from './components/search/search.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import {ReactiveFormsModule} from '@angular/forms'
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { ProductDetailsComponent } from './components/product-details/product-de
     FormsModule,
     HttpClientModule,
     FontAwesomeModule,
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

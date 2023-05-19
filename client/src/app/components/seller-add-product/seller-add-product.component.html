@@ -1,53 +1,63 @@
 <div class="add-product">
-    <h1>Add New Product</h1>
-    <p class="message-p">{{addProductMessage}}</p>
-    <form #addProduct="ngForm"
-    (ngSubmit)="submit(addProduct.value)"
-     class="common-form">
-      <input
-        type="text"
-        class="form-input"
-        placeholder="Enter Product Name"
-        name="name"
-        ngModel
-      />
-      <input
-      type="number"
-      class="form-input"
-      placeholder="Enter Product Price"
-      name="price"
-      ngModel
-    />
-    <input
-    type="text"
-    class="form-input"
-    placeholder="Enter Product Category"
-    name="category"
-    ngModel
-  />
-  <input
-  type="text"
-  class="form-input"
-  placeholder="Enter Product Color"
-  name="color"
-  ngModel
-  />
-  <textarea
-  type="text"
-  class="form-input"
-  placeholder="Enter Product Description"
-  name="description"
-  ngModel
-  ></textarea>
-  
-  <input
-  type="text"
-  class="form-input"
-  placeholder="Enter Product Image URL"
-  name="image"
-  ngModel
-  />
-  <button class="form-button">Add Product</button>
-  
-    </form>
-  </div>
+  <h1>Add New Product</h1>
+  <p class="message-p">{{addProductMessage}}</p>
+  <form [formGroup]="addProductForm"  (ngSubmit)="submit(addProductForm.value)" class="common-form">
+
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Enter Product Name" name="name" formControlName="name"
+        [ngClass]="{ 'is-invalid': addProductForm.get('name')?.invalid && addProductForm.get('name')?.touched }" />
+      <div class="invalid-feedback" *ngIf="addProductForm.get('name')?.invalid && addProductForm.get('name')?.touched">
+        Product Name is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <input type="number" class="form-control" placeholder="Enter Product Price" name="price" formControlName="price"
+        [ngClass]="{ 'is-invalid': addProductForm.get('price')?.invalid && addProductForm.get('price')?.touched }" />
+      <div class="invalid-feedback" *ngIf="addProductForm.get('price')?.invalid && addProductForm.get('price')?.touched">
+        Product Price is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Enter Product Category" name="category" formControlName="category"
+        [ngClass]="{ 'is-invalid': addProductForm.get('category')?.invalid && addProductForm.get('category')?.touched }" />
+      <div class="invalid-feedback" *ngIf="addProductForm.get('category')?.invalid && addProductForm.get('category')?.touched">
+        Product Category is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Enter Product Color" name="color" formControlName="color"
+        [ngClass]="{ 'is-invalid': addProductForm.get('color')?.invalid && addProductForm.get('color')?.touched }" />
+      <div class="invalid-feedback" *ngIf="addProductForm.get('color')?.invalid && addProductForm.get('color')?.touched">
+        Product Color is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <textarea type="text"  class="form-control" placeholder="Enter Product Description" name="description"
+      formControlName="description"  [ngClass]="{ 'is-invalid': addProductForm.get('description')?.invalid && addProductForm.get('description')?.touched }"></textarea>
+      <div class="invalid-feedback" *ngIf="addProductForm.get('description')?.invalid && addProductForm.get('description')?.touched">
+        Product Description is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+       <input type="text" formControlName="image" class="form-control" placeholder="Enter Product Image URL" name="image"   [ngClass]="{ 'is-invalid': addProductForm.get('image')?.invalid && addProductForm.get('image')?.touched }"/>
+      <div class="invalid-feedback" *ngIf="addProductForm.get('image')?.invalid && addProductForm.get('image')?.touched">
+        Product Image URL is required.
+      </div>
+    </div>
+    <!-- <input type="text"  class="form-input" placeholder="Enter Product Name" name="name" formControlName="name" [ngClass]="{ 'is-invalid': addProductForm.get('name')?.invalid && addProductForm.get('name')?.touched }"/> -->
+    <!-- <input type="number"  class="form-input" placeholder="Enter Product Price" name="price"  formControlName="price" [ngClass]="{ 'is-invalid': addProductForm.get('price')?.invalid && addProductForm.get('price')?.touched }"/> -->
+    <!-- <input type="text"  class="form-input" placeholder="Enter Product Category" name="category"  formControlName="category" [ngClass]="{ 'is-invalid': addProductForm.get('category')?.invalid && addProductForm.get('category')?.touched }"/> -->
+    <!-- <input type="text"  class="form-input" placeholder="Enter Product Color" name="color"  formControlName="color"  [ngClass]="{ 'is-invalid': addProductForm.get('color')?.invalid && addProductForm.get('color')?.touched }" /> -->
+    <!-- <textarea type="text"  class="form-input" placeholder="Enter Product Description" name="description"
+    formControlName="description"  [ngClass]="{ 'is-invalid': addProductForm.get('description')?.invalid && addProductForm.get('description')?.touched }"></textarea> -->
+
+    <!-- <input type="text" formControlName="image" class="form-input" placeholder="Enter Product Image URL" name="image"   [ngClass]="{ 'is-invalid': addProductForm.get('image')?.invalid && addProductForm.get('image')?.touched }"/> -->
+    <button class="form-button" [disabled]="addProductForm.invalid">Add Product</button>
+
+  </form>
+</div>

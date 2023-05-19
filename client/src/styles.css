@@ -1,3 +1,5 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
 body {
     font-family: 'Roboto Mono', monospace;
 }
@@ -7,6 +9,10 @@ body {
     flex-direction: column;
     width: 300px;
     margin: auto;
+    box-sizing: border-box;
+  }
+  .form-group {
+    margin-bottom: 15px;
   }
   .form-input {
     height: 35px;
@@ -20,6 +26,13 @@ body {
     border: 1px solid blueviolet;
     color: blueviolet;
     cursor: pointer;
+    background-color: rgb(228, 199, 227);
+  }
+
+  .form-button:hover{
+    background-color: black;
+    color: white;
+    font-size: 1rem;
   }
   .error-p{
     color: red;
@@ -41,4 +54,7 @@ body {
     border-radius: 5px;
   }
 
-  
+  .is-invalid {
+    border: 2px solid red;
+    border-color: red;
+  }

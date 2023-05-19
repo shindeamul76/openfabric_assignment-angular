@@ -28,6 +28,7 @@ export class SellerHomeComponent {
     this.product.deleteProduct(id).subscribe((result: any) => {
       if(result) {
         this.productMessage = result.message
+        alert('Product is deleted Successfully..')
         this.productsList()
       }
     })
@@ -39,7 +40,6 @@ export class SellerHomeComponent {
   productsList() {
     this.product.productList().subscribe((result:any) => {
       this.productList = result.products
-      console.log(this.productList);
       
     })
   }

@@ -18,7 +18,9 @@ export class ProductService {
   }
 
   deleteProduct(id:string) {
-    return this.http.delete(`http://localhost:5000/api/v1/product/${id}`)
+
+      return this.http.delete(`http://localhost:5000/api/v1/product/${id}`)
+   
   }
 
   getProduct(id:string)  {

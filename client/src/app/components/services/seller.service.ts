@@ -1,5 +1,5 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http'
+import {HttpClient, HttpHeaders} from '@angular/common/http'
 import { Login, SignUp } from 'src/app/data-types';
 import { BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router'
@@ -42,7 +42,10 @@ export class SellerService {
      {observe:"response"}
      ).subscribe((result : any) => {
       if ( result && result.body ) {
-        console.log('User Logged In');
+        const accessToken = result.body.accessToken; 
+
+        const headers = new HttpHeaders().set('token', `Bearer ${accessToken}`);
+        
         localStorage.setItem('seller', JSON.stringify(result.body))
         this.router.navigate(['seller-home'])   
       }else if(result.error) {

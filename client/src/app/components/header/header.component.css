@@ -38,3 +38,11 @@
     color: blueviolet;
 }
 
+ul li a {
+    color: blueviolet;
+}
+
+.header__logo:hover {
+    border: 1px solid black;
+}
+

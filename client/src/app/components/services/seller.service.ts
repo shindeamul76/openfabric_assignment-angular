@@ -16,7 +16,7 @@ export class SellerService {
 
   userSignUp(data: SignUp){
    
-    this.http.post('http://localhost:5000/api/v1/register',
+    this.http.post('https://openfab-backend.onrender.com/api/v1/register',
      data, 
     {observe:"response"}
     ).subscribe((result)=> {
@@ -37,7 +37,7 @@ export class SellerService {
   }
 
   userLogin (data: Login) {
-    this.http.post('http://localhost:5000/api/v1/login',
+    this.http.post('https://openfab-backend.onrender.com/api/v1/login',
      data,
      {observe:"response"}
      ).subscribe((result : any) => {
